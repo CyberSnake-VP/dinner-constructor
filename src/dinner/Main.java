@@ -48,11 +48,22 @@ public class Main {
     }
 
     private static void generateDishCombo() {
+        if(dc.checkExistedDish()){
+            System.out.println("Ваш список блюд пуст, добавьте в него блюда используя команду - 1 основного меню.");
+            return;
+        }
         System.out.println("Начинаем конструировать обед...");
 
         System.out.println("Введите количество наборов, которые нужно сгенерировать:");
         int numberOfCombos = scanner.nextInt();
         scanner.nextLine();
+
+        // проверяем на ввод отрицательных значений комбо
+        if(numberOfCombos <= 0) {
+            System.out.printf("Введите количество наборов начиная от 1... вы ввели [%d] \n", numberOfCombos);
+            scanner.nextLine(); //используем метод, чтобы избежать пропуска последующего ввода команды из основного меню
+            return;
+        }
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
         String nextItem = scanner.nextLine();

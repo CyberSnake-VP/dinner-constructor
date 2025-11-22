@@ -44,6 +44,11 @@ public class DinnerConstructor {
         return dinnersByType.containsKey(type); //если хранилище уже содержит такое блюдо - вернём true
     }
 
+    //метод для проверки существования блюд
+    public boolean checkExistedDish() {
+        return dinnersByType.isEmpty();
+    }
+
     //метод для генерирования одной комбинации блюд
     private ArrayList<String> generateCombo(ArrayList<String> dishTypes) {
 
